@@ -7,72 +7,93 @@ abstract class ElectronicItems {
     }
     abstract public function getType() : string;
 }
-echo "\n";
-class Phones extends ElectronicItems {
-   public function getType() : string {
-        return "Phones";
-    }
-} 
-echo "-Phones-\n";
-class MobilePhones extends Phones {
-  public function getType() : string {
-        return "Mobile Phones";
-    }
-}
-   echo " Mobile Phones\n";
-class Iphone extends MobilePhones {
-    public function getType(): string {
-            return "$this->name";
-    }
-}
-class Samsung extends MobilePhones {
-    public function getType() : string
-        {
+
+    class Phones extends ElectronicItems {
+    public function getType() : string {
             return "$this->name";
         }
-}
+    } 
+
+    class MobilePhones extends Phones {
+    public function getType() : string {
+            return "$this->name";
+        }
+    }   
+
+    class Iphone extends MobilePhones {
+        public function getType(): string {
+                return "$this->name";
+        }
+    }
+    class Samsung extends MobilePhones {
+        public function getType() : string
+            {
+                return "$this->name";
+            }
+    }
+    $phones = new Phones("\n-Phones-\n");
+    echo $phones->getType(). PHP_EOL;
+
+    $mobilePhones = new MobilePhones("Mobile Phones");
+    echo $mobilePhones->getType(). PHP_EOL;
+    
     $iphone = new Iphone("   -Iphone 14 pro max");
-    $samsung = new Samsung("   -Samsung S24 ultra");
     echo $iphone->getType(). PHP_EOL;
+
+    $samsung = new Samsung("   -Samsung S24 ultra");
     echo $samsung->getType(). PHP_EOL;
 
-class CordPhones extends Phones {
-    public function getType() : string {
-        return "Cord Phones";
-    }
-}
-    echo " Cord Phones\n";
-
-class cordedPhone extends CordPhones {
-    public function getType() : string {
+    //cordPhones
+    class CordPhones extends Phones {
+        public function getType() : string {
             return "$this->name";
         }
-}
-    $cordedPhone = new cordedPhone("   -Corded Landline");
-    echo $cordedPhone->getType(). PHP_EOL;
-class CordlessPhone extends CordPhones {
-    public function getType() : string {
-        return "$this->name";
     }
-}
+    class CordedPhone extends CordPhones {
+        public function getType() : string {
+                return "$this->name";
+            }
+    }
+
+    class CordlessPhone extends CordPhones {
+        public function getType() : string {
+            return "$this->name";
+        }
+    } 
+
+    $cordPhones = new CordPhones("Cord Phones");
+    echo $cordPhones->getType(). PHP_EOL;
+
+    $cordedPhone = new CordedPhone ("   -Corded Phone");
+    echo $cordedPhone->getType(). PHP_EOL;
+
     $cordlessPhone = new CordlessPhone("   -Cordless Landline");
     echo $cordlessPhone->getType(). PHP_EOL;
-   
-class SoundSystems extends ElectronicItems {
+
+    //soundSystems
+    class SoundSystems extends ElectronicItems {
+            public function getType() : string {
+                return "$this->name";
+            }
+    }   
+
+    class Earplugs extends SoundSystems {
         public function getType() : string {
-            return "Sound Systems";
+            return "$this->name";
         }
-}
-    echo "Sound Systems\n";
-class Earplugs extends SoundSystems {
-    public function getType() : string {
-        return "Earplugs";
+    }  
+
+    class Stereos extends SoundSystems{
+        public function getType() : string {
+            return "$this->name";
+        }
     }
-}
-    echo "Earplugs\n";
-class Stereos extends SoundSystems{
-    public function getType() : string {
-        return "Stereos";
-    }
-}
-    echo "Stereos\n";
+
+    $soundSystems = new SoundSystems("Sound Systems");
+    echo $soundSystems->getType(). PHP_EOL;
+
+    $soundSystems = new Earplugs("Earplugs");
+    echo $soundSystems->getType(). PHP_EOL;
+
+    $stereos = new Stereos("Stereos");
+    echo $stereos->getType(). PHP_EOL;
