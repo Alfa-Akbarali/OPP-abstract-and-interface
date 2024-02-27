@@ -1,25 +1,35 @@
 <?php
 
-interface Animal {
-    public function makeSound();
-  }
+interface Animal 
+{
+    public function makeAnimal();
+}
   
-  class Cat implements Animal {
-    public function makeSound() {
+  class Cat implements Animal 
+  {
+    public function makeAnimal() 
+    {
       echo "animal: cat\n";
     }
   }
-  class Dog implements Animal {
-    public function makeSound() {
+  class Dog implements Animal 
+  {
+    public function makeAnimal() 
+    {
       echo "animal: dog\n";
     }
   }
+
   $cat = new Cat();
   $dog = new Dog();
   $animals = array($cat, $dog);
-  foreach($animals as $animal) {
-    $animal->makeSound();
+
+  foreach($animals as $animal) 
+  {
+    $animal->makeAnimal();
   }
+
+
 
     //----abstract class
     abstract class Color 
@@ -44,64 +54,7 @@ interface Animal {
             return "Your color is $this->name!";
         }
     }
-    $black = new Blue("black");
+    $blue = new Blue("blue");
     $white = new White("white");
     echo $white->intro() . PHP_EOL;
-    echo $black->intro() . PHP_EOL;
-
-
-   //////////electronieci_tems
-
-
-   abstract class ElectronicItems {
-    abstract public function getType();
-}
-
-class Phones extends ElectronicItems {
-    public function getType() {
-        return "Phones";
-    }
-}
-
-class MobilePhones extends Phones {
-    public function getType() {
-        return "Mobile Phones";
-    }
-}
-
-class CordPhones extends Phones {
-    public function getType() {
-        return "Cord Phones";
-    }
-}
-
-class SoundSystems extends ElectronicItems {
-    public function getType() {
-        return "Sound Systems";
-    }
-}
-
-class Earplugs extends SoundSystems {
-    public function getType() {
-        return "Earplugs";
-    }
-}
-
-class Stereos extends SoundSystems{
-     public function getType(){
-         return "Stereos";
-     }
-}
-
-$items = [
-    new MobilePhones(),
-    new CordPhones(),
-    new Earplugs(),
-    new Stereos()
-];
-
-foreach ($items as $item) {
-    echo $item->getType() . "\n";
-}
-
-
+    echo $blue->intro() . PHP_EOL;
