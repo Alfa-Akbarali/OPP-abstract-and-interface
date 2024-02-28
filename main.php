@@ -10,7 +10,7 @@
         }
         abstract public function info();
     }
-    class Car extends Vehicle
+    trait Constructable
     {
         protected $model;
         public function __construct($type, $model)
@@ -18,6 +18,10 @@
             parent::__construct($type);
             $this->model = $model;
         }
+    }
+    class Car extends Vehicle
+    {
+        use Constructable;
         public function info()
         {
             return "Type: {$this->type} Model: {$this->model}\n";
