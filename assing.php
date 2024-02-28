@@ -82,18 +82,34 @@ abstract class ElectronicItems {
             return "$this->name";
         }
     }  
-
+    class Airpods extends Earplugs {
+        public function getType() : string {
+                return "$this->name";
+            }
+    }
+    
     class Stereos extends SoundSystems{
         public function getType() : string {
             return "$this->name";
         }
     }
-
-    $soundSystems = new SoundSystems("Sound Systems");
+    class Jbl extends Stereos {
+        public function getType() : string {
+                return "$this->name";
+            }
+    }
+    
+    $soundSystems = new SoundSystems("\n-Sound Systems-\n");
     echo $soundSystems->getType(). PHP_EOL;
 
     $soundSystems = new Earplugs("Earplugs");
     echo $soundSystems->getType(). PHP_EOL;
 
+    $airpods = new Airpods("   -AirPods");
+    echo $airpods->getType(). PHP_EOL;
+
     $stereos = new Stereos("Stereos");
     echo $stereos->getType(). PHP_EOL;
+
+    $jbl = new Jbl("   -JBL");
+    echo $jbl->getType(). PHP_EOL;
