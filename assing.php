@@ -7,29 +7,25 @@ abstract class ElectronicItems {
     }
     abstract public function getType() : string;
 }
-
-    class Phones extends ElectronicItems {
-    public function getType() : string {
+    trait Make
+    {
+        public function getType() : string {
             return "$this->name";
         }
+    }
+    class Phones extends ElectronicItems {
+        use Make;
     } 
 
     class MobilePhones extends Phones {
-    public function getType() : string {
-            return "$this->name";
-        }
+        use Make;
     }   
 
     class Iphone extends MobilePhones {
-        public function getType(): string {
-                return "$this->name";
-        }
+        use Make;
     }
     class Samsung extends MobilePhones {
-        public function getType() : string
-            {
-                return "$this->name";
-            }
+        use Make;
     }
     $phones = new Phones("\n-Phones-\n");
     echo $phones->getType(). PHP_EOL;
@@ -45,20 +41,14 @@ abstract class ElectronicItems {
 
     //cordPhones
     class CordPhones extends Phones {
-        public function getType() : string {
-            return "$this->name";
-        }
+       use Make;
     }
     class CordedPhone extends CordPhones {
-        public function getType() : string {
-                return "$this->name";
-            }
+        use Make;
     }
 
     class CordlessPhone extends CordPhones {
-        public function getType() : string {
-            return "$this->name";
-        }
+        use Make;
     } 
 
     $cordPhones = new CordPhones("Cord Phones");
@@ -72,31 +62,21 @@ abstract class ElectronicItems {
 
     //soundSystems
     class SoundSystems extends ElectronicItems {
-            public function getType() : string {
-                return "$this->name";
-            }
+        use Make;
     }   
 
     class Earplugs extends SoundSystems {
-        public function getType() : string {
-            return "$this->name";
-        }
+        use Make;
     }  
     class Airpods extends Earplugs {
-        public function getType() : string {
-                return "$this->name";
-            }
+        use Make;
     }
     
     class Stereos extends SoundSystems{
-        public function getType() : string {
-            return "$this->name";
-        }
+        use Make;
     }
     class Jbl extends Stereos {
-        public function getType() : string {
-                return "$this->name";
-            }
+        use Make;
     }
     
     $soundSystems = new SoundSystems("\n-Sound Systems-\n");
